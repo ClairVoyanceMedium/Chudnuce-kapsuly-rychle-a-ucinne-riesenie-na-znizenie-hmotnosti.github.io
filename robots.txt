@@ -1,42 +1,283 @@
-# Indique aux robots que toutes les pages peuvent être explorées, sauf restrictions spécifiées
-User-agent: *
-Disallow: /admin/
-Disallow: /tmp/
-Disallow: /private/
+# robots.txt v3.5 - 2025-05-28  
+# Optimalizované pre https://clairvoyancemedium.github.io/Chudnuce-kapsuly-rychle-a-ucinne-riesenie-na-znizenie-hmotnosti.github.io/  
+# Ciele: Globálne SEO, časté prechádzanie, podpora pre AI/hlasových asistentov/sociálne siete, viacjazyčnosť, maximálna ochrana  
 
-# Bloquer des URL avec paramètres inutiles pour l'indexation
-Disallow: /*?debug=true
-Disallow: /*?preview=true
+# --- Všeobecné pokyny pre všetkých legitímnych vyhľadávačov ---  
+User-agent: *  
+Allow: /  
+Allow: /[a-z]{2}/  # Viacjazyčné stránky (/sk/, /en/, /de/, atď.)  
+Allow: /terms/     # Všeobecné obchodné podmienky  
+Allow: /fonts/     # Písma pre vykreslenie  
+Allow: /images/    # Obrázky pre indexáciu  
+Allow: /js/        # Interaktívne skripty  
+Allow: /css/       # CSS mobile-first  
+Allow: /*.webp$    # Obrázky WebP  
+Allow: /*.jpg$     # Obrázky JPG  
+Allow: /*.png$     # Obrázky PNG  
+Allow: /*.gif$     # Obrázky GIF  
+Allow: /*.js$      # JavaScript skripty  
+Allow: /*.css$     # CSS súbory  
+Disallow: /csp-report-endpoint/  # Ochrana CSP  
+Disallow: /contact/             # Kontaktná stránka  
+Disallow: /privacy/             # Zásady ochrany osobných údajov  
+Disallow: /checkout/            # Transakčné cesty  
+Disallow: /search/              # Vyhľadávacie stránky  
+Disallow: /api/                 # API koncové body  
+Disallow: /test/                # Testovacie priečinky  
+Disallow: /staging/             # Staging prostredia  
+Clean-param: utm_source&utm_medium&utm_campaign&lang&session_id  # Povoliť užitočné parametre  
 
-# Permettre les fichiers nécessaires au bon affichage et fonctionnement
-Allow: /css/
-Allow: /js/
-Allow: /images/
+# --- Pokyny pre Googlebot (Google, Google Assistant) ---  
+User-agent: Googlebot  
+Crawl-delay: 1  
+Allow: /blog/      # Obsah bohatý na SEO  
+Allow: /article/   # Články pre snippet  
+Clean-param: utm_source&utm_medium&utm_campaign&lang  
+Disallow: /csp-report-endpoint/  
+Disallow: /contact/  
+Disallow: /privacy/  
+Disallow: /checkout/  
 
-# Référencement des ressources multimédias
-Allow: *.png
-Allow: *.jpg
-Allow: *.webp
-Allow: *.css
-Allow: *.js
+# --- Pokyny pre Googlebot-Image ---  
+User-agent: Googlebot-Image  
+Allow: /images/  
+Allow: /*.webp$  
+Allow: /*.jpg$  
+Allow: /*.png$  
+Allow: /*.gif$  
+Disallow: /favicon_optimized.webp  # Zabrániť favicon  
 
-# Fournir le chemin du fichier sitemap pour une meilleure indexation
-Sitemap: https://www.clairvoyancemedium.com/sitemap.xml
+# --- Pokyny pre Googlebot-Video ---  
+User-agent: Googlebot-Video  
+Crawl-delay: 1  
+Allow: /  
+Allow: /[a-z]{2}/  
+Disallow: /csp-report-endpoint/  
+Disallow: /contact/  
+Disallow: /privacy/  
+Disallow: /checkout/  
 
-# Autorisation pour les robots Google et Bing pour maximiser les campagnes publicitaires
-User-agent: Googlebot
-Allow: /
-User-agent: AdsBot-Google
-Allow: /
-User-agent: Bingbot
-Allow: /
+# --- Pokyny pre Bingbot (Bing, Cortana) ---  
+User-agent: Bingbot  
+Crawl-delay: 2  
+Allow: /blog/  
+Allow: /article/  
+Clean-param: utm_source&utm_medium&utm_campaign&lang  
+Disallow: /csp-report-endpoint/  
+Disallow: /contact/  
+Disallow: /privacy/  
+Disallow: /checkout/  
 
-# Bloquer les robots nuisibles ou non désirés
-User-agent: BadBot
-Disallow: /
-User-agent: EvilScraper
-Disallow: /
+# --- Pokyny pre Yandex (Yandex, Alice) ---  
+User-agent: Yandex  
+Crawl-delay: 3  
+Allow: /blog/  
+Allow: /article/  
+Clean-param: utm_source&utm_medium&utm_campaign&lang&session_id  
+Disallow: /csp-report-endpoint/  
+Disallow: /contact/  
+Disallow: /privacy/  
+Disallow: /checkout/  
 
-# Empêcher l'exploration des fichiers sensibles
-Disallow: /config/
-Disallow: /backup/
+# --- Pokyny pre Baiduspider (Čína) ---  
+User-agent: Baiduspider  
+Crawl-delay: 3  
+Allow: /zh/        # Uprednostniť čínštinu  
+Allow: /blog/  
+Allow: /article/  
+Clean-param: lang  
+Disallow: /csp-report-endpoint/  
+Disallow: /contact/  
+Disallow: /privacy/  
+Disallow: /checkout/  
+Disallow: /api/  
+Disallow: /test/  
+Disallow: /staging/  
+
+# --- Pokyny pre Sogou (Čína) ---  
+User-agent: Sogou  
+Crawl-delay: 4  
+Allow: /zh/  
+Allow: /blog/  
+Allow: /article/  
+Clean-param: lang  
+Disallow: /csp-report-endpoint/  
+Disallow: /contact/  
+Disallow: /privacy/  
+Disallow: /checkout/  
+Disallow: /api/  
+Disallow: /test/  
+Disallow: /staging/  
+
+# --- Pokyny pre Applebot (Siri, Apple) ---  
+User-agent: Applebot  
+Crawl-delay: 2  
+Allow: /blog/  
+Allow: /article/  
+Clean-param: utm_source&utm_medium&utm_campaign&lang  
+Disallow: /csp-report-endpoint/  
+Disallow: /contact/  
+Disallow: /privacy/  
+Disallow: /checkout/  
+
+# --- Pokyny pre Amazonbot (Alexa, Amazon) ---  
+User-agent: Amazonbot  
+Crawl-delay: 3  
+Allow: /blog/  
+Allow: /article/  
+Clean-param: utm_source&utm_medium&utm_campaign&lang  
+Disallow: /csp-report-endpoint/  
+Disallow: /contact/  
+Disallow: /privacy/  
+Disallow: /checkout/  
+
+# --- Pokyny pre Naverbot (Japonsko/Kórea) ---  
+User-agent: Naverbot  
+Crawl-delay: 3  
+Allow: /ja/        # Uprednostniť japončinu  
+Allow: /ko/        # Uprednostniť kórejčinu  
+Allow: /blog/  
+Allow: /article/  
+Clean-param: lang  
+Disallow: /csp-report-endpoint/  
+Disallow: /contact/  
+Disallow: /privacy/  
+Disallow: /checkout/  
+
+# --- Pokyny pre SeznamBot (Česká republika) ---  
+User-agent: SeznamBot  
+Crawl-delay: 3  
+Allow: /cs/        # Uprednostniť češtinu  
+Allow: /blog/  
+Allow: /article/  
+Clean-param: lang  
+Disallow: /csp-report-endpoint/  
+Disallow: /contact/  
+Disallow: /privacy/  
+Disallow: /checkout/  
+
+# --- Pokyny pre Qwantify (Qwant, Európa) ---  
+User-agent: Qwantify  
+Crawl-delay: 4  
+Allow: /fr/        # Uprednostniť francúzštinu  
+Allow: /blog/  
+Allow: /article/  
+Clean-param: lang  
+Disallow: /csp-report-endpoint/  
+Disallow: /contact/  
+Disallow: /privacy/  
+Disallow: /checkout/  
+
+# --- Pokyny pre DuckDuckGoBot (Globálne) ---  
+User-agent: DuckDuckGoBot  
+Crawl-delay: 2  
+Allow: /  
+Allow: /[a-z]{2}/  
+Allow: /blog/  
+Allow: /article/  
+Clean-param: utm_source&utm_medium&utm_campaign&lang  
+Disallow: /csp-report-endpoint/  
+Disallow: /contact/  
+Disallow: /privacy/  
+Disallow: /checkout/  
+
+# --- Pokyny pre JioSphere (India) ---  
+User-agent: JioSphere  
+Crawl-delay: 3  
+Allow: /hi/        # Uprednostniť hindčinu  
+Allow: /blog/  
+Allow: /article/  
+Clean-param: lang  
+Disallow: /csp-report-endpoint/  
+Disallow: /contact/  
+Disallow: /privacy/  
+Disallow: /checkout/  
+
+# --- Pokyny pre konverzačné AI vyhľadávače ---  
+User-agent: Grok  
+User-agent: ChatGPT-User  
+User-agent: GPTBot  
+User-agent: openai-crawler  
+User-agent: ClaudeBot  
+User-agent: anthropic-ai  
+User-agent: cohere-ai  
+User-agent: PerplexityBot  
+User-agent: CCBot  
+User-agent: youbot  
+User-agent: phindbot  
+User-agent: GeminiBot  # Google AI  
+Crawl-delay: 4  
+Allow: /  
+Allow: /[a-z]{2}/  
+Allow: /blog/      # Konverzačné výňatky  
+Allow: /article/  
+Allow: /images/  
+Allow: /*.webp$  
+Allow: /*.jpg$  
+Allow: /*.png$  
+Allow: /*.gif$  
+Clean-param: utm_source&utm_medium&utm_campaign&lang  
+Disallow: /csp-report-endpoint/  
+Disallow: /contact/  
+Disallow: /privacy/  
+Disallow: /checkout/  
+Disallow: /api/  
+Disallow: /test/  
+Disallow: /staging/  
+
+# --- Pokyny pre vyhľadávače sociálnych sietí ---  
+User-agent: FacebookBot  
+User-agent: Twitterbot  
+User-agent: redditbot  
+User-agent: TikTokBot  # Nové sociálne siete  
+Crawl-delay: 2  
+Allow: /  
+Allow: /[a-z]{2}/  
+Allow: /blog/      # Náhľady pre sociálne siete  
+Allow: /article/  
+Allow: /images/  
+Allow: /*.webp$  
+Allow: /*.jpg$  
+Allow: /*.png$  
+Allow: /*.gif$  
+Clean-param: utm_source&utm_medium&utm_campaign&lang  
+Disallow: /csp-report-endpoint/  
+Disallow: /contact/  
+Disallow: /privacy/  
+Disallow: /checkout/  
+
+# --- Blokovať nežiaduce vyhľadávače ---  
+User-agent: MJ12bot  
+User-agent: AhrefsBot  
+User-agent: PetalBot  
+User-agent: DotBot  
+Disallow: /  
+
+# --- Povoliť SemrushBot pre SEO audity ---  
+User-agent: SemrushBot  
+Crawl-delay: 5  
+Allow: /  
+Allow: /[a-z]{2}/  
+Allow: /blog/  
+Allow: /article/  
+Allow: /images/  
+Allow: /*.webp$  
+Allow: /*.jpg$  
+Allow: /*.png$  
+Allow: /*.gif$  
+Clean-param: utm_source&utm_medium&utm_campaign&lang  
+Disallow: /csp-report-endpoint/  
+Disallow: /contact/  
+Disallow: /privacy/  
+Disallow: /checkout/  
+
+# --- Ochrana pred neznámymi vyhľadávačmi ---  
+User-agent: *  
+Disallow: /  # Blokovať štandardne, pokiaľ nie je explicitne povolené  
+
+# --- Optimalizácia prechádzania ---  
+Crawl-delay: 1  
+Request-rate: 1/4  # 1 požiadavka/4s pre rýchle prechádzanie  
+
+# --- Sitemap index ---  
+Sitemap: https://clairvoyancemedium.github.io/Chudnuce-kapsuly-rychle-a-ucinne-riesenie-na-znizenie-hmotnosti.github.io/sitemap-index.xml
